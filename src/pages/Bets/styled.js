@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
 export const PageArea = styled.div`
+  h2 {
+    display: flex;
+    justify-content: center;
+  }
   .container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -9,6 +13,10 @@ export const PageArea = styled.div`
   }
   .games {
     margin: 10px;
+    label {
+      display: flex;
+      justify-content: center;
+    }
     .time {
       width: 200px;
       text-align: justify;
@@ -68,39 +76,49 @@ export const InfosArea = styled.div`
   margin-bottom: 20px;
   border: 1px solid #999;
   padding: 15px 0;
-  form {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
 
-    .area {
-      width: 235px;
-      padding: 0 15px;
-      .area--input {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+
+  .area {
+    width: 235px;
+    padding: 0 15px;
+    .area--input {
+      width: 200px;
+      input {
         width: 200px;
-        input {
-          width: 200px;
-        }
+      }
+      p {
+        margin: 0;
       }
     }
   }
-  @media (max-width: 500px) {
-    margin: 0 10px;
-    form {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
 
-      .area {
-        width: 400px;
-        .area--input {
-          width: 350px;
-          input {
-            width: 350px;
-            height: 35px;
-            font-size: 17px;
-          }
+  @media (max-width: 500px) {
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    .area {
+      width: 380px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 0;
+      .area--title {
+        margin-right: 10px;
+      }
+      .area--input {
+        width: 250px;
+        display: flex;
+        justify-content: flex-end;
+        input {
+          width: 250px;
+          height: 35px;
+          font-size: 17px;
         }
       }
     }
@@ -129,4 +147,9 @@ export const SendButton = styled.button`
     margin-right: 55px;
     font-size: 20px;
   }
+`;
+
+export const DateLimit = styled.div`
+  text-align: center;
+  margin: 15px 0;
 `;

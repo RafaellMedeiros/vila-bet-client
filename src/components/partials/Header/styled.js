@@ -9,6 +9,9 @@ export const HeaderArea = styled.div`
   align-items: center;
   padding: 10px 20px;
   color: #fff;
+  @media print {
+    display: none;
+  }
 `;
 
 export const LogoItem = styled.img`

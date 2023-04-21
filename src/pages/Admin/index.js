@@ -15,6 +15,8 @@ const Page = () => {
           <Link to={"/admin/cadrep"}>Cadastro de Representantes</Link>
           <Link to={"/admin/jogos"}>Jogos da Semana</Link>
           <Link to={"/admin/resultados"}>Cadastrar Resultado</Link>
+          <Link to={"/admin/zerar"}>Recomeçar semana</Link>
+          <Link to={"/admin/ranking"}>Ranking da semana</Link>
         </div>
       </PageArea>
     </PageContainer>

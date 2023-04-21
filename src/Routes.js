@@ -13,19 +13,17 @@ import Confirmation from "./pages/Confirmation";
 import NotFound from "./pages/NotFound";
 import Protected from "./components/protected/protected";
 import Logout from "./pages/Logout";
+import Restart from "./pages/Restart";
+import Ranking from "./pages/Ranking";
 import useApi from "./services/api";
 
 export const Routes = () => {
-  const api = useApi();
-  const isLogged = api.validateToken();
-  console.log("islogged: ", isLogged);
-
   return useRoutes([
     { path: "/", element: <Home /> },
     {
       path: "/admin",
       element: (
-        <Protected isLogged={isLogged}>
+        <Protected>
           <Admin />
         </Protected>
       ),
@@ -33,7 +31,7 @@ export const Routes = () => {
     {
       path: "/admin/analise",
       element: (
-        <Protected isLogged={isLogged}>
+        <Protected>
           <Analysis />
         </Protected>
       ),
@@ -41,7 +39,7 @@ export const Routes = () => {
     {
       path: "/admin/cadrep",
       element: (
-        <Protected isLogged={isLogged}>
+        <Protected>
           <CadSeller />
         </Protected>
       ),
@@ -49,7 +47,7 @@ export const Routes = () => {
     {
       path: "/admin/jogos",
       element: (
-        <Protected isLogged={isLogged}>
+        <Protected>
           <GamesWeek />
         </Protected>
       ),
@@ -57,22 +55,36 @@ export const Routes = () => {
     {
       path: "/admin/resultados",
       element: (
-        <Protected isLogged={isLogged}>
+        <Protected>
           <Results />
+        </Protected>
+      ),
+    },
+    {
+      path: "/admin/zerar",
+      element: (
+        <Protected>
+          <Restart />
+        </Protected>
+      ),
+    },
+    {
+      path: "/admin/ranking",
+      element: (
+        <Protected>
+          <Ranking />
         </Protected>
       ),
     },
     {
       path: "/apostas",
       element: (
-        <Protected isLogged={true}>
-          {" "}
-          {/* lembrar de voltar pra islogged */}
+        <Protected>
           <Bets />
         </Protected>
       ),
     },
-    { path: "/apostas/confirmacao", element: <Confirmation /> },
+    { path: "/apostas/confirmacao/:id", element: <Confirmation /> },
     { path: "/logout", element: <Logout /> },
     { path: "*", element: <NotFound /> },
   ]);

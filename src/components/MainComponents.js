@@ -12,6 +12,12 @@ export const PageTitle = styled.h1`
   display: flex;
   justify-content: center;
   margin-top: 20px;
+  @media print {
+    display: none;
+  }
+  @media (max-width: 500px) {
+    text-align: center;
+  }
 `;
 
 export const PageBody = styled.div``;
@@ -27,11 +33,14 @@ export const ErrorMessage = styled.div`
 export const Back = styled.div`
   padding: 10px;
   background-color: #781010;
-  position: fixed;
-  left: 5px;
-  top: 105px;
+  width: 300px;
+  text-align: center;
+  margin-top: 15px;
   color: #fff;
   font-weight: bold;
-  border-radius: 15%;
+  border-radius: 10px;
   cursor: pointer;
+  @media (max-width: 500px) {
+    margin-left: 50px;
+  }
 `;

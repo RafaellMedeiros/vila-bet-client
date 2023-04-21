@@ -24,13 +24,16 @@ const Page = () => {
     query.get("Data") != null ? query.get("Data") : ""
   );
 
-  const navigate = useNavigate();
-
   const [disabled, setDisabled] = useState(false);
 
   const [filter, setFilter] = useState(true);
 
   const [aposta, setAposta] = useState([]);
+
+  const [ranking, setRanking] = useState([]);
+  useEffect(() => {
+    api.getRanking().then((response) => setRanking(response.data));
+  }, []);
   const [allUsers, setAllUsers] = useState([]);
   useEffect(() => {
     api.getAllUsers().then((response) => setAllUsers(response));
@@ -73,82 +76,32 @@ const Page = () => {
     <PageContainer>
       <Back onClick={handleBackButton}>Voltar para página inicial</Back>
 
-      <PageTitle>Área de análise.</PageTitle>
+      <PageTitle>Ranking Semanal</PageTitle>
       <PageArea>
-        {!filter && <Filter onClick={handleFilter}>Mostrar filtros</Filter>}
-        {filter && (
-          <>
-            <Filter onClick={handleFilter}>Fechar filtros</Filter>
-            <SearchArea>
-              <form onSubmit={handleSubmit}>
-                <label className="area">
-                  <div className="area--title">Filtrar por Id:</div>
-                  <div className="area--input">
-                    <input
-                      type="text"
-                      disabled={disabled}
-                      value={id}
-                      onChange={(e) => setId(e.target.value)}
-                    />
-                  </div>
-                </label>
-                <label className="area">
-                  <div className="area--title">Filtrar por revendedor:</div>
-                  <div className="area--input">
-                    <select onChange={(e) => setRevendedor(e.target.value)}>
-                      <option></option>
-                      {allUsers.map((item, index) => (
-                        <option key={index} value={item}>
-                          {item}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                </label>
-
-                <label className="area">
-                  <div className="area--title">Filtrar por data:</div>
-                  <div className="area--input">
-                    <input
-                      type="date"
-                      disabled={disabled}
-                      value={data}
-                      onChange={(e) => setData(e.target.value)}
-                    />
-                  </div>
-                </label>
-
-                <label className="area">
-                  <div className="area--title"></div>
-                  <div className="area--input--button">
-                    <button disabled={disabled}>Filtrar</button>
-                  </div>
-                </label>
-              </form>
-            </SearchArea>
-          </>
-        )}
-        <div>Total de apostas: {aposta.length}</div>
         <table className="responsive" border="1">
           <tr>
             <th>Id</th>
-            <th>revendedor</th>
             <th>Apostador</th>
+            <th>Revendedor</th>
             <th>Telefone</th>
             <th>Endereço</th>
             <th>data</th>
+            <th>Pontos</th>
           </tr>
-          {aposta?.map((i, k) => (
+          {ranking?.map((i, k) => (
             <tr key={k}>
               <td>{i.id}</td>
-              <td>{i.seller}</td>
               <td>{i.name}</td>
+              <td>{i.seller}</td>
               <td>{i.telephone}</td>
               <td>{i.address}</td>
               <td>{i.date}</td>
+              <td>{i.points}</td>
             </tr>
           ))}
         </table>
+
+        <div>Total de apostas: {ranking.length}</div>
       </PageArea>
     </PageContainer>
   );

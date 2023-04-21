@@ -1,33 +1,17 @@
-import React, { useState } from "react";
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
+/* eslint-disable import/no-anonymous-default-export */
+import React from "react";
+import { Container, ModalBody } from "./styled";
 
-export const ConfirmationModal = () => {
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+export default ({ status, setStatus, children }) => {
+  const handleModalClick = (e) => {
+    if (e.target.classList.contains("modalBg")) {
+      setStatus(false);
+    }
+  };
 
   return (
-    <>
-      <Button variant="primary" onClick={handleShow}>
-        Enviar apostas
-      </Button>
-
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Confirmação</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>Confira se os jogos estão corretos!</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Cancelar
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Confirmar
-          </Button>
-        </Modal.Footer>
-      </Modal>
-    </>
+    <Container className="modalBg" status={status} onClick={handleModalClick}>
+      <ModalBody>{children}</ModalBody>
+    </Container>
   );
 };

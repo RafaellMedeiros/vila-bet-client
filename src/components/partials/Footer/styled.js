@@ -12,6 +12,9 @@ export const FooterArea = styled.div`
   @media (max-width: 500px) {
     height: 35px;
   }
+  @media print {
+    display: none;
+  }
 `;
 
 export const TextArea = styled.div`
