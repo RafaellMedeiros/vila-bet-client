@@ -1,5 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
-const baseUrl = "http://192.168.0.125:3000/";
+const baseUrl = "https://vila-bet-api.herokuapp.com/";
 
 const request = async (method, endpoint, params, token = null) => {
   method = method.toLowerCase();
