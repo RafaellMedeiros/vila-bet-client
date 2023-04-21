@@ -29,7 +29,13 @@ const Page = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    api.cadSeller(name, email, surname, phone, cpf, address, password);
+    const response = api.cadSeller(name, email, surname, phone, cpf, address, password);
+    if (response.newUser) {
+      alert("Representante criado");
+      navigate("/admin");
+    } else {
+      alert("Não foi possível concluir a operação!");
+    }
   };
 
   return (

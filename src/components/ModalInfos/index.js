@@ -19,7 +19,7 @@ export default ({ data, setStatus }) => {
   const navigate = useNavigate();
   const games = data && data.games ? data.games : [];
   const handleCancelButton = () => {
-    setStatus(false);
+    navigate("/apostas");
   };
 
   const handleConfirmation = async () => {
