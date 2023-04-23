@@ -15,7 +15,6 @@ const Page = () => {
     { timeHome: "", timeAway: "" },
     { timeHome: "", timeAway: "" },
     { timeHome: "", timeAway: "" },
-    { timeHome: "", timeAway: "" } /* 
     { timeHome: "", timeAway: "" },
     { timeHome: "", timeAway: "" },
     { timeHome: "", timeAway: "" },
@@ -31,7 +30,8 @@ const Page = () => {
     { timeHome: "", timeAway: "" },
     { timeHome: "", timeAway: "" },
     { timeHome: "", timeAway: "" },
-    { timeHome: "", timeAway: "" }, */,
+    { timeHome: "", timeAway: "" },
+    { timeHome: "", timeAway: "" },
   ]);
   const [dateLimit, setDateLimit] = useState("");
   const [disabled, setDisabled] = useState(false);
