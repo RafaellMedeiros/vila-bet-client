@@ -9,7 +9,13 @@ export const PageArea = styled.div`
   .games {
     margin: 10px;
     .game {
-      text-align: justify;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 5px;
+      input {
+        width: 150px;
+        margin-left: 5px;
+      }
     }
     h3 {
       text-align: center;
