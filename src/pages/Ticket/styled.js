@@ -109,19 +109,32 @@ export const WppButton = styled.div`
   }
 `;
 export const PrintArea = styled.div`
-  display: block;
+  display: flex;
+  flex-direction: column;
+  .title {
+    display: flex;
+    justify-content: center;
+    h1 {
+      font-size: 40px;
+    }
+  }
+  .infos {
+    display: flex;
+    justify-content: space-around;
+    p {
+      font-size: 30 px;
+    }
+  }
   body {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-  h1 {
-    font-size: 60px;
-  }
+
   table {
     border-collapse: collapse;
     width: 100%;
-    font-size: 30px;
+    font-size: 25px;
     margin-bottom: 1rem;
   }
 
@@ -145,7 +158,19 @@ export const PrintArea = styled.div`
     background-color: #ddd;
   }
 
-  p {
-    font-size: 45px;
+  @media (max-width: 500px) {
+    .infos {
+      flex-direction: column;
+      padding: 15px;
+      p {
+        margin: 0;
+      }
+    }
+    .table {
+      padding: 15px;
+      table {
+        font-size: 20px;
+      }
+    }
   }
 `;

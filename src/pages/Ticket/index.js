@@ -45,37 +45,41 @@ const Page = () => {
 
   return (
     <PageContainer>
-      <PageTitle>Aposta enviada com sucesso!</PageTitle>
       <PageArea>
         <PrintArea>
           <title>Ticket de Aposta - Vila Bet</title>
-
-          <h1>Ticket - Vila Bet</h1>
-          <p>
-            <strong>Identificador: </strong> {id}
-          </p>
-          <p>
-            <strong>Nome: </strong> {name}
-          </p>
-          <p>
-            <strong>Posição no ranking: </strong> {rankingPosition}
-          </p>
-          <table>
-            <tbody>
-              <tr>
-                <th>Jogo</th>
-                <th>Resultado</th>
-              </tr>
-              {ticket?.map((item, index) => (
-                <tr key={index}>
-                  <td>
-                    {item.time_home} X {item.time_away}
-                  </td>
-                  <td>{item.result}</td>
+          <div className="title">
+            <h1>Ticket - Vila Bet</h1>
+          </div>
+          <div className="infos">
+            <p>
+              <strong>Id da aposta: </strong> {id}
+            </p>
+            <p>
+              <strong>Nome: </strong> {name}
+            </p>
+            <p>
+              <strong>Posição no ranking: </strong> {rankingPosition}
+            </p>
+          </div>
+          <div className="table">
+            <table>
+              <tbody>
+                <tr>
+                  <th>Jogo</th>
+                  <th>Resultado</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+                {ticket?.map((item, index) => (
+                  <tr key={index}>
+                    <td>
+                      {item.time_home} X {item.time_away}
+                    </td>
+                    <td>{item.result}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </PrintArea>
       </PageArea>
     </PageContainer>
