@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { HeaderArea, LogoItem, Title, UserArea, LogOut } from "./styled";
 import LogoImage from "./assets/logo.png";
 import TitleImage from "./assets/name.png";
@@ -9,12 +9,20 @@ const Header = () => {
   const handleLogout = () => {
     history("/logout");
   };
+  const hasToken = () => {
+    if (localStorage.getItem("token")) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
   return (
     <HeaderArea>
       <LogoItem src={LogoImage} />
       <Title src={TitleImage} />
       <UserArea>
-        <LogOut onClick={handleLogout}>Sair</LogOut>
+        {hasToken() && <LogOut onClick={handleLogout}>Sair</LogOut>}
       </UserArea>
     </HeaderArea>
   );
