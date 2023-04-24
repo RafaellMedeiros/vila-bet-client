@@ -37,6 +37,10 @@ export const PageArea = styled.div`
       margin: 0;
       margin-bottom: 10px;
     }
+    label {
+      display: flex;
+      justify-content: center;
+    }
   }
   @media (max-width: 500px) {
     .container {
