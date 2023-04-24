@@ -15,7 +15,7 @@ import Protected from "./components/protected/protected";
 import Logout from "./pages/Logout";
 import Restart from "./pages/Restart";
 import Ranking from "./pages/Ranking";
-import useApi from "./services/api";
+import Ticket from "./pages/Ticket";
 
 export const Routes = () => {
   return useRoutes([
@@ -86,6 +86,7 @@ export const Routes = () => {
     },
     { path: "/apostas/confirmacao/:id", element: <Confirmation /> },
     { path: "/logout", element: <Logout /> },
+    { path: "/ticket/:id", element: <Ticket /> },
     { path: "*", element: <NotFound /> },
   ]);
 };

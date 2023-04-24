@@ -33,7 +33,7 @@ const Page = () => {
   };
   const handleSendButton = (e) => {
     e.preventDefault();
-    if (true) {
+    if (canSubmit()) {
       // dentro do if é canSubmit()
       const infos = { games, results: true };
       setModalData(infos);
@@ -50,6 +50,8 @@ const Page = () => {
     }
   };
   const isAllGamesFilled = games?.every((game) => game.result);
+  console.log(games);
+
   return (
     <PageContainer>
       <Back onClick={handleBackButton}>Voltar para a página inicial</Back>
@@ -60,7 +62,7 @@ const Page = () => {
             <div className="games" key={k}>
               <h3 key={k}>Jogo {k + 1}</h3>
 
-              <label for={`${k}`}>
+              <label htmlFor={`${k}-home`}>
                 <div
                   className="time"
                   style={{
@@ -72,13 +74,13 @@ const Page = () => {
                     type="radio"
                     value={"home"}
                     name={k + "resultado"}
-                    id={`${k}`}
+                    id={`${k}-home`}
                     onChange={() => handleOnChange(k, "home")}
                   />
                   {i.time_home}
                 </div>
               </label>
-              <label for={`${k}1`}>
+              <label htmlFor={`${k}-draw`}>
                 <div
                   className="time"
                   style={{
@@ -90,13 +92,13 @@ const Page = () => {
                     type="radio"
                     value={"draw"}
                     name={k + "resultado"}
-                    id={`${k}1`}
+                    id={`${k}-draw`}
                     onChange={() => handleOnChange(k, "draw")}
                   />
                   Empate
                 </div>
               </label>
-              <label for={`${k}2`}>
+              <label htmlFor={`${k}-away`}>
                 <div
                   className="time"
                   style={{
@@ -108,7 +110,7 @@ const Page = () => {
                     type="radio"
                     value={"away"}
                     name={k + "resultado"}
-                    id={`${k}2`}
+                    id={`${k}-away`}
                     selected={i.result === "away"}
                     onChange={() => handleOnChange(k, "away")}
                   />

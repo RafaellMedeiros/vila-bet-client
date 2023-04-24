@@ -154,5 +154,10 @@ export default () => {
       );
       return json;
     },
+    getTicket: async (id) => {
+      let token = localStorage.getItem("token");
+      let json = await request("get", "ticket", { id }, token);
+      return json;
+    },
   };
 };
