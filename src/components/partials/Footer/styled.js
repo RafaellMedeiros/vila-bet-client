@@ -27,9 +27,13 @@ export const TextArea = styled.div`
   }
 `;
 
-export const Devs = styled.div`
+export const Rules = styled.div`
   font-size: 17px;
   text-align: center;
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
   @media (max-width: 500px) {
     font-size: 13px;
   }

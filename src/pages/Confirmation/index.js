@@ -20,12 +20,21 @@ const Page = () => {
   const [showLink, setShowLink] = useState(false);
   const [Nocopied, setNoCopied] = useState(true);
   const [ticket, setTicket] = useState([]);
+  const [telephone, setTelephone] = useState("");
   let newBet = false;
   useEffect(() => {
-    api.getBet(id).then((response) => setTicket(response.data));
+    api.getBet(id).then((response) => {
+      setTicket(response.data);
+      setTelephone(response.telephone);
+    });
   }, []);
 
-  const handleSendWpp = () => {};
+  const handleSendWpp = () => {
+    window.open(
+      `https://wa.me/55${telephone}?text=*Acesse%20seu%20ticket%20on-line%20Vila-bet:*%20http://192.168.0.107:3001/apostas/confirmacao/${id}`,
+      "_blank"
+    );
+  };
   const handlePrint = () => {
     newBet = true;
     window.print();

@@ -1,5 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
-const baseUrl = "http://localhost:3000/";
+const baseUrl = "http://192.168.0.107:3000/";
 
 const request = async (method, endpoint, params, token = null) => {
   method = method.toLowerCase();

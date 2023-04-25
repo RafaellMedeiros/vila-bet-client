@@ -105,7 +105,7 @@ const Page = () => {
             <div className="area--title">Telefone:</div>
             <div className="area--input">
               <input
-                type="tel"
+                type="number"
                 disabled={disabled}
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}

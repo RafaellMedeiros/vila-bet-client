@@ -47,10 +47,11 @@ export const PageArea = styled.div`
 
 export const ButtonsArea = styled.div`
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   margin-bottom: 10px;
   @media (max-width: 500px) {
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: center;
   }
   @media print {
     display: none;
@@ -67,8 +68,8 @@ export const NewBetButton = styled.button`
   padding: 5px 10px;
   cursor: pointer;
   @media (max-width: 500px) {
-    width: 150px;
-    margin-right: 35px;
+    width: 390px;
+    margin: 10px;
   }
 `;
 export const PrintTicketButton = styled.div`
@@ -81,15 +82,15 @@ export const PrintTicketButton = styled.div`
   padding: 5px 10px;
   cursor: pointer;
   @media (max-width: 500px) {
-    width: 150px;
-    margin-right: 35px;
+    width: 390px;
+    margin: 10px;
     text-align: center;
   }
 `;
 export const WppButton = styled.div`
   border: 0;
   background-color: #1bd741;
-  display: none; // nova feature
+  display: flex;
   justify-content: center;
   align-items: center;
   color: #fff;
@@ -104,8 +105,8 @@ export const WppButton = styled.div`
     width: 30px;
   }
   @media (max-width: 500px) {
-    width: 150px;
-    margin-left: 35px;
+    width: 390px;
+    margin: 10px;
   }
 `;
 export const PrintArea = styled.div`

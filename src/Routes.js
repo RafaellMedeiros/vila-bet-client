@@ -16,6 +16,7 @@ import Logout from "./pages/Logout";
 import Restart from "./pages/Restart";
 import Ranking from "./pages/Ranking";
 import Ticket from "./pages/Ticket";
+import Rules from "./pages/Rules";
 
 export const Routes = () => {
   return useRoutes([
@@ -84,9 +85,17 @@ export const Routes = () => {
         </Protected>
       ),
     },
-    { path: "/apostas/confirmacao/:id", element: <Confirmation /> },
+    {
+      path: "/apostas/confirmacao/:id",
+      element: (
+        <Protected>
+          <Confirmation />
+        </Protected>
+      ),
+    },
     { path: "/logout", element: <Logout /> },
     { path: "/ticket/:id", element: <Ticket /> },
+    { path: "/rules", element: <Rules /> },
     { path: "*", element: <NotFound /> },
   ]);
 };
