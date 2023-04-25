@@ -5,7 +5,6 @@ const LoggedUserContext = createContext({});
 // <LoggedUserProvider></LoggedUserProvider>
 export const LoggedUserProvider = ({ children }) => {
   // troca aqui por teus states que tu precisa e o set tb
-  const [token] = localStorage.getItem("token");
   const [isValidToken, setIsValidToken] = useState({});
 
   return (

@@ -14,10 +14,11 @@ const Page = (props) => {
   return (
     <BrowserRouter>
       <Template>
-        <Header />
+        <LoggedUserProvider>
+          <Header />
 
-        <Routes />
-
+          <Routes />
+        </LoggedUserProvider>
         <Footer />
       </Template>
     </BrowserRouter>
