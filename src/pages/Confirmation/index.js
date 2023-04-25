@@ -30,6 +30,7 @@ const Page = () => {
   }, []);
 
   const handleSendWpp = () => {
+    newBet = true;
     window.open(
       `https://wa.me/55${telephone}?text=*Acesse%20seu%20ticket%20on-line%20Vila-bet:*%20https://vila-bet.herokuapp.com/ticket/${id}`,
       "_blank"
