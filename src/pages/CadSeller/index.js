@@ -26,10 +26,10 @@ const Page = () => {
     navigate("/admin");
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const response = api.cadSeller(name, email, surname, phone, cpf, address, password);
+    const response = await api.cadSeller(name, email, surname, phone, cpf, address, password);
     if (response.newUser) {
       alert("Representante criado");
       navigate("/admin");
