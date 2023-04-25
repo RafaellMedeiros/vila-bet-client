@@ -105,7 +105,7 @@ const Page = () => {
             <div className="area--title">Telefone:</div>
             <div className="area--input">
               <input
-                type="tel"
+                type="number"
                 disabled={disabled}
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
@@ -142,7 +142,7 @@ const Page = () => {
                     <div className="games" key={k}>
                       <h3 key={k}>Jogo {k + 1}</h3>
 
-                      <label htmlFor={`${k}`}>
+                      <label htmlFor={`${k}-home`}>
                         <div
                           className="time"
                           style={{
@@ -155,13 +155,13 @@ const Page = () => {
                             type="radio"
                             value={"home"}
                             name={k + "resultado"}
-                            id={`${k}`}
+                            id={`${k}-home`}
                             onChange={() => handleOnChange(k, "home")}
                           />
                           {i.time_home}
                         </div>
                       </label>
-                      <label htmlFor={`${k}1`}>
+                      <label htmlFor={`${k}-draw`}>
                         <div
                           className="time"
                           style={{
@@ -174,13 +174,13 @@ const Page = () => {
                             type="radio"
                             value={"draw"}
                             name={k + "resultado"}
-                            id={`${k}1`}
+                            id={`${k}-draw`}
                             onChange={() => handleOnChange(k, "draw")}
                           />
                           Empate
                         </div>
                       </label>
-                      <label htmlFor={`${k}2`}>
+                      <label htmlFor={`${k}-away`}>
                         <div
                           className="time"
                           style={{
@@ -193,7 +193,7 @@ const Page = () => {
                             type="radio"
                             value={"away"}
                             name={k + "resultado"}
-                            id={`${k}2`}
+                            id={`${k}-away`}
                             selected={i.result === "away"}
                             onChange={() => handleOnChange(k, "away")}
                           />

@@ -47,11 +47,10 @@ export const PageArea = styled.div`
 
 export const ButtonsArea = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   margin-bottom: 10px;
   @media (max-width: 500px) {
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
   }
   @media print {
     display: none;
@@ -68,8 +67,8 @@ export const NewBetButton = styled.button`
   padding: 5px 10px;
   cursor: pointer;
   @media (max-width: 500px) {
-    width: 390px;
-    margin: 10px;
+    width: 150px;
+    margin-right: 35px;
   }
 `;
 export const PrintTicketButton = styled.div`
@@ -82,15 +81,15 @@ export const PrintTicketButton = styled.div`
   padding: 5px 10px;
   cursor: pointer;
   @media (max-width: 500px) {
-    width: 390px;
-    margin: 10px;
+    width: 150px;
+    margin-right: 35px;
     text-align: center;
   }
 `;
 export const WppButton = styled.div`
   border: 0;
   background-color: #1bd741;
-  display: flex;
+  display: none; // nova feature
   justify-content: center;
   align-items: center;
   color: #fff;
@@ -105,52 +104,73 @@ export const WppButton = styled.div`
     width: 30px;
   }
   @media (max-width: 500px) {
-    width: 390px;
-    margin: 10px;
+    width: 150px;
+    margin-left: 35px;
   }
 `;
 export const PrintArea = styled.div`
-  display: none;
-
-  @media print {
-    display: block;
-    body {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+  display: flex;
+  flex-direction: column;
+  .title {
+    display: flex;
+    justify-content: center;
     h1 {
-      font-size: 60px;
+      font-size: 40px;
     }
-    table {
-      border-collapse: collapse;
-      width: 100%;
-      font-size: 30px;
-      margin-bottom: 1rem;
-    }
-
-    th,
-    td {
-      border: 1px solid #ddd;
-      padding: 4px;
-      text-align: center;
-    }
-
-    th {
-      background-color: #f2f2f2;
-      color: #444;
-    }
-
-    tr:nth-child(even) {
-      background-color: #f2f2f2;
-    }
-
-    tr:hover {
-      background-color: #ddd;
-    }
-
+  }
+  .infos {
+    display: flex;
+    justify-content: space-around;
     p {
-      font-size: 45px;
+      font-size: 30 px;
+    }
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 25px;
+    margin-bottom: 1rem;
+  }
+
+  th,
+  td {
+    border: 1px solid #ddd;
+    padding: 4px;
+    text-align: center;
+  }
+
+  th {
+    background-color: #f2f2f2;
+    color: #444;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  tr:hover {
+    background-color: #ddd;
+  }
+
+  @media (max-width: 500px) {
+    .infos {
+      flex-direction: column;
+      padding: 15px;
+      p {
+        margin: 0;
+      }
+    }
+    .table {
+      padding: 15px;
+      table {
+        font-size: 20px;
+      }
     }
   }
 `;

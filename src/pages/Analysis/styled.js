@@ -14,6 +14,10 @@ export const PageArea = styled.div`
     td {
       text-align: center;
       overflow-wrap: break-word;
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
     }
   }
   tr:nth-child(odd) {

@@ -68,6 +68,8 @@ const Page = () => {
   );
   const isDateFilled = dateLimit !== "" ? true : false;
 
+  const dateNow = new Date().toISOString().slice(0, 16);
+
   return (
     <PageContainer>
       <Back onClick={handleBackButton}>Voltar para a página inicial</Back>
@@ -79,6 +81,7 @@ const Page = () => {
             <input
               type="datetime-local"
               value={dateLimit}
+              min={dateNow}
               onChange={(e) => setDateLimit(e.target.value)}
               required
             />

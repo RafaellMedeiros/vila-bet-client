@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { HomeContainer, HomeTitle, PageArea } from "./styled.js";
 import useApi from "../../services/api.js";
@@ -12,6 +12,9 @@ const Page = () => {
   const [password, setPassword] = useState("");
   const [rememberPassword, setRememberPassword] = useState(false);
   const [disabled, setDisabled] = useState(false);
+  useEffect(() => {
+    api.validateToken();
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

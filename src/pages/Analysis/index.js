@@ -140,7 +140,9 @@ const Page = () => {
           </tr>
           {aposta?.map((i, k) => (
             <tr key={k}>
-              <td>{i.id}</td>
+              <td>
+                <a href={`/ticket/${i.id}`}>{i.id}</a>
+              </td>
               <td>{i.seller}</td>
               <td>{i.name}</td>
               <td>{i.telephone}</td>

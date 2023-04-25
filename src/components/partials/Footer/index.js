@@ -1,12 +1,14 @@
 import React from "react";
-import { FooterArea, TextArea, Devs, Rights } from "./styled";
+import { FooterArea, TextArea, Rules, Rights } from "./styled";
 
 const Footer = () => {
   return (
     <FooterArea>
       <TextArea>
-        <Devs>Desenvolvido por:</Devs>
-        <Rights>Todos os direitos reservados®</Rights>
+        <Rules>
+          <a href="/rules">Acesse as regras do Vila Bet</a>
+        </Rules>
+        <Rights>Todos os direitos reservados à Vila Bet®</Rights>
       </TextArea>
     </FooterArea>
   );
