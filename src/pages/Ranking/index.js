@@ -78,6 +78,7 @@ const Page = () => {
 
       <PageTitle>Ranking Semanal</PageTitle>
       <PageArea>
+        <div className="total-bets">Total de apostas: {ranking.length}</div>
         <table className="responsive" border="1">
           <tr>
             <th>Id</th>
@@ -100,8 +101,6 @@ const Page = () => {
             </tr>
           ))}
         </table>
-
-        <div>Total de apostas: {ranking.length}</div>
       </PageArea>
     </PageContainer>
   );

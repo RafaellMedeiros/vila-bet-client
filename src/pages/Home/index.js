@@ -1,7 +1,15 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { HomeContainer, HomeTitle, PageArea } from "./styled.js";
+import {
+  HomeContainer,
+  HomeTitle,
+  PageArea,
+  FooterArea,
+  TextArea,
+  Rules,
+  Rights,
+} from "./styled.js";
 import useApi from "../../services/api.js";
 import { useNavigate } from "react-router-dom";
 
@@ -32,39 +40,40 @@ const Page = () => {
     setDisabled(false);
   };
   return (
-    <HomeContainer>
-      <HomeTitle>
-        Bem-vindo a VilaBet!
-        <br />
-        Fazer Login:
-      </HomeTitle>
-      <PageArea>
-        <form onSubmit={handleSubmit}>
-          <label className="area">
-            <div className="area--title">E-mail</div>
-            <div className="area--input">
-              <input
-                type="email"
-                disabled={disabled}
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-            </div>
-          </label>
-          <label className="area">
-            <div className="area--title">Senha</div>
-            <div className="area--input">
-              <input
-                type="password"
-                disabled={disabled}
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-            </div>
-          </label>
-          {/* <label className="area">
+    <>
+      <HomeContainer>
+        <HomeTitle>
+          Bem-vindo a VilaBet!
+          <br />
+          Fazer Login:
+        </HomeTitle>
+        <PageArea>
+          <form onSubmit={handleSubmit}>
+            <label className="area">
+              <div className="area--title">E-mail</div>
+              <div className="area--input">
+                <input
+                  type="email"
+                  disabled={disabled}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </div>
+            </label>
+            <label className="area">
+              <div className="area--title">Senha</div>
+              <div className="area--input">
+                <input
+                  type="password"
+                  disabled={disabled}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+              </div>
+            </label>
+            {/* <label className="area">
                         <div className="area--title">Lembrar Senha</div>
                         <div className="area--input ">
                             <input
@@ -75,15 +84,24 @@ const Page = () => {
                             />
                         </div>
                     </label> */}
-          <label className="area">
-            <div className="area--title"></div>
-            <div className="area--input">
-              <button disabled={disabled}>Fazer Login</button>
-            </div>
-          </label>
-        </form>
-      </PageArea>
-    </HomeContainer>
+            <label className="area">
+              <div className="area--title"></div>
+              <div className="area--input">
+                <button disabled={disabled}>Fazer Login</button>
+              </div>
+            </label>
+          </form>
+        </PageArea>
+      </HomeContainer>
+      <FooterArea>
+        <TextArea>
+          <Rules>
+            <a href="/rules">Acesse as regras do Vila Bet</a>
+          </Rules>
+          <Rights>Todos os direitos reservados à Vila Bet®</Rights>
+        </TextArea>
+      </FooterArea>
+    </>
   );
 };
 

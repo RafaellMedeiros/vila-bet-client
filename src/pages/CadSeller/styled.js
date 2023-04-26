@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const PageArea = styled.div`
   display: flex;
   justify-content: center;
-  margin-bottom: 15px;
+  margin-bottom: 100px;
   form {
     border-radius: 3px;
     padding: 10px;

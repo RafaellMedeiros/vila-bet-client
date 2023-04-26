@@ -38,6 +38,9 @@ export const PageArea = styled.div`
       border: 1;
     }
   }
+  .total-bets {
+    text-align: center;
+  }
 `;
 
 export const SearchArea = styled.div`

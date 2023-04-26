@@ -128,7 +128,7 @@ const Page = () => {
             </SearchArea>
           </>
         )}
-        <div>Total de apostas: {aposta.length}</div>
+        <div className="total-bets">Total de apostas: {aposta.length}</div>
         <table className="responsive" border="1">
           <tr>
             <th>Id</th>

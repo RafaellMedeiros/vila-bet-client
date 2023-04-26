@@ -9,6 +9,7 @@ export const FooterArea = styled.div`
   justify-content: center;
   align-items: center;
   color: #fff;
+  bottom: 0;
   @media (max-width: 500px) {
     height: 35px;
   }

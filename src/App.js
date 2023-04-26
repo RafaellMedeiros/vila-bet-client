@@ -4,7 +4,6 @@ import { BrowserRouter, Route } from "react-router-dom";
 
 import { Template } from "./components/MainComponents";
 import Header from "./components/partials/Header";
-import Footer from "./components/partials/Footer";
 import { LoggedUserProvider } from "./hooks/LoggedUserProvider";
 
 import { Routes } from "./Routes";
@@ -19,7 +18,6 @@ const Page = (props) => {
 
           <Routes />
         </LoggedUserProvider>
-        <Footer />
       </Template>
     </BrowserRouter>
   );
