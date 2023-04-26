@@ -31,7 +31,7 @@ const Page = () => {
 
   const handleSendWpp = () => {
     window.open(
-      `https://wa.me/55${telephone}?text=*Acesse%20seu%20ticket%20on-line%20Vila-bet:*%20http://192.168.0.107:3001/apostas/confirmacao/${id}`,
+      `https://wa.me/55${telephone}?text=*Acesse%20seu%20ticket%20on-line%20Vila-bet:*%20https://vila-bet.herokuapp.com/apostas/confirmacao/${id}`,
       "_blank"
     );
   };
