@@ -17,6 +17,7 @@ import Restart from "./pages/Restart";
 import Ranking from "./pages/Ranking";
 import Ticket from "./pages/Ticket";
 import Rules from "./pages/Rules";
+import MySells from "./pages/MySells";
 
 export const Routes = () => {
   return useRoutes([
@@ -90,6 +91,14 @@ export const Routes = () => {
       element: (
         <Protected>
           <Confirmation />
+        </Protected>
+      ),
+    },
+    {
+      path: "/minhasvendas",
+      element: (
+        <Protected>
+          <MySells />
         </Protected>
       ),
     },

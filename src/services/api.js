@@ -1,5 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
-const baseUrl = "https://vila-bet-api.herokuapp.com/";
+const baseUrl = "http://localhost:3000/";
 
 const request = async (method, endpoint, params, token = null) => {
   method = method.toLowerCase();
@@ -132,6 +132,11 @@ export default () => {
     getAnalysis: async (id, seller, date) => {
       let token = localStorage.getItem("token");
       let json = await request("get", "analysis/", { id, seller, date }, token);
+      return json;
+    },
+    getMySells: async () => {
+      let token = localStorage.getItem("token");
+      let json = await request("get", "analysis/mysales", {}, token);
       return json;
     },
     getAllUsers: async () => {
