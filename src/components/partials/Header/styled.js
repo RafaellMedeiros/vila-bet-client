@@ -38,9 +38,19 @@ export const UserArea = styled.div`
   align-items: center;
   justify-content: left;
   padding: 0 10px;
+  .userButtons {
+    display: flex;
+  }
 `;
 
 export const LogOut = styled.div`
   font-size: 17px;
   cursor: pointer;
+  margin-left: 5px;
+`;
+
+export const MySells = styled.div`
+  font-size: 17px;
+  cursor: pointer;
+  margin-right: 5px;
 `;
