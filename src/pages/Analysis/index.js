@@ -35,10 +35,7 @@ const Page = () => {
   useEffect(() => {
     api.getAllUsers().then((response) => setAllUsers(response));
   }, []);
-  useEffect(() => {
-    api.getAnalysis().then((data) => setAposta(data));
-  }, []);
-
+  
   useEffect(() => {
     let queryString = [];
     if (id) {
