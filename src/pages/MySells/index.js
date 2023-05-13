@@ -11,48 +11,12 @@ import useApi from "../../services/api";
 const Page = () => {
   const history = useNavigate();
   const api = useApi();
-  const useQueryString = () => {
-    return new URLSearchParams(useLocation().search);
-  };
-  const query = useQueryString();
-
-  const [id, setId] = useState(query.get("Id") != null ? query.get("Id") : "");
-  const [revendedor, setRevendedor] = useState(
-    query.get("Revendedor") != null ? query.get("Revendedor") : ""
-  );
-  const [data, setData] = useState(
-    query.get("Data") != null ? query.get("Data") : ""
-  );
-
-  const navigate = useNavigate();
-
-  const [disabled, setDisabled] = useState(false);
-
-  const [filter, setFilter] = useState(true);
 
   const [aposta, setAposta] = useState([]);
-  const [user, setUser] = useState([]);
 
   useEffect(() => {
     api.getMySells().then((data) => setAposta(data));
   }, []);
-
-  useEffect(() => {
-    let queryString = [];
-    if (id) {
-      queryString.push(`Id=${id}`);
-    }
-    if (revendedor) {
-      queryString.push(`Revendedor=${revendedor}`);
-    }
-    if (data) {
-      queryString.push(`Data=${data}`);
-    }
-
-    history({
-      search: `?${queryString.join("&")}`,
-    });
-  }, [id, revendedor, data]);
 
   const handleBackButton = () => {
     history("/apostas");

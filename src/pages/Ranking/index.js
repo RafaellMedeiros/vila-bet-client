@@ -11,67 +11,16 @@ import useApi from "../../services/api";
 const Page = () => {
   const history = useNavigate();
   const api = useApi();
-  const useQueryString = () => {
-    return new URLSearchParams(useLocation().search);
-  };
-  const query = useQueryString();
-
-  const [id, setId] = useState(query.get("Id") != null ? query.get("Id") : "");
-  const [revendedor, setRevendedor] = useState(
-    query.get("Revendedor") != null ? query.get("Revendedor") : ""
-  );
-  const [data, setData] = useState(
-    query.get("Data") != null ? query.get("Data") : ""
-  );
-
-  const [disabled, setDisabled] = useState(false);
-
-  const [filter, setFilter] = useState(true);
-
-  const [aposta, setAposta] = useState([]);
 
   const [ranking, setRanking] = useState([]);
   useEffect(() => {
     api.getRanking().then((response) => setRanking(response.data));
   }, []);
-  const [allUsers, setAllUsers] = useState([]);
-  useEffect(() => {
-    api.getAllUsers().then((response) => setAllUsers(response));
-  }, []);
-  useEffect(() => {
-    api.getAnalysis().then((data) => setAposta(data));
-  }, []);
-
-  useEffect(() => {
-    let queryString = [];
-    if (id) {
-      queryString.push(`Id=${id}`);
-    }
-    if (revendedor) {
-      queryString.push(`Revendedor=${revendedor}`);
-    }
-    if (data) {
-      queryString.push(`Data=${data}`);
-    }
-
-    history({
-      search: `?${queryString.join("&")}`,
-    });
-  }, [id, revendedor, data]);
-
-  const handleFilter = () => {
-    setFilter(!filter);
-  };
 
   const handleBackButton = () => {
     history("/admin");
   };
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setDisabled(true);
-    setAposta(await api.getAnalysis(id, revendedor, data));
-    setDisabled(false);
-  };
+
   return (
     <PageContainer>
       <Back onClick={handleBackButton}>Voltar para página inicial</Back>
