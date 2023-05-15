@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { PageContainer, PageTitle } from "../../components/MainComponents";
 import { PageArea } from "./styled";
 
-const Page = () => {
+const Page = () => { 
   return (
     <PageContainer>
       <PageTitle>Bem vindo a área do administrador</PageTitle>
