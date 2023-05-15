@@ -7,7 +7,6 @@ import {
 } from "../../components/MainComponents";
 import { PageArea, SearchArea, Filter } from "./styled";
 import useApi from "../../services/api";
-import { Trash } from "@phosphor-icons/react";
 
 const Page = () => {
   const history = useNavigate();
