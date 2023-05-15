@@ -147,7 +147,7 @@ const Page = () => {
               <td>{i.date}</td>
               <td>
                 <a href={`/delete/${i.id}`}>
-                  <Trash size={32} alt="Deletar"/>
+                  DELETAR
                 </a>
               </td>
             </tr>
