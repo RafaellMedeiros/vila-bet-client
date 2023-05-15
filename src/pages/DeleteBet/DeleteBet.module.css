@@ -1,0 +1,38 @@
+.textInfo {
+    margin: 0 10px 0 10px;
+}
+
+.formSubmit {
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    @media (max-width: 500px) {
+        flex-direction: column;
+    }
+}
+
+.formSubmit button {
+    padding: 10px;
+    background-color: #47141d;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: 10px;
+    border: 0;
+    @media (max-width: 500px) {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 300px;
+        font-size: 20px;
+        margin-top: 10px;
+    }
+}
+
+.formSubmit input {
+    padding: 10px;
+}

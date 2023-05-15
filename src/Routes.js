@@ -18,6 +18,7 @@ import Ranking from "./pages/Ranking";
 import Ticket from "./pages/Ticket";
 import Rules from "./pages/Rules";
 import MySells from "./pages/MySells";
+import DeleteBet from "./pages/DeleteBet";
 
 export const Routes = () => {
   return useRoutes([
@@ -99,6 +100,13 @@ export const Routes = () => {
       element: (
         <Protected>
           <MySells />
+        </Protected>
+      ),
+    },    {
+      path: "/delete/:id",
+      element: (
+        <Protected>
+          <DeleteBet />
         </Protected>
       ),
     },

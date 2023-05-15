@@ -7,6 +7,7 @@ import {
 } from "../../components/MainComponents";
 import { PageArea, SearchArea, Filter } from "./styled";
 import useApi from "../../services/api";
+import { Trash } from "@phosphor-icons/react";
 
 const Page = () => {
   const history = useNavigate();
@@ -23,8 +24,6 @@ const Page = () => {
   const [data, setData] = useState(
     query.get("Data") != null ? query.get("Data") : ""
   );
-
-  const navigate = useNavigate();
 
   const [disabled, setDisabled] = useState(false);
 
@@ -134,6 +133,7 @@ const Page = () => {
             <th>Telefone</th>
             <th>Endereço</th>
             <th>data</th>
+            <th>ações</th>
           </tr>
           {aposta?.map((i, k) => (
             <tr key={k}>
@@ -145,6 +145,11 @@ const Page = () => {
               <td>{i.telephone}</td>
               <td>{i.address}</td>
               <td>{i.date}</td>
+              <td>
+                <a href={`/delete/${i.id}`}>
+                  <Trash size={32} alt="Deletar"/>
+                </a>
+              </td>
             </tr>
           ))}
         </table>

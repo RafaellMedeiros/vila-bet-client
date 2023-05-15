@@ -14,7 +14,7 @@ const Page = () => {
           <br />
           <br />
           <ol>
-            <li>Este jogo permite que você aposte em 20 jogos de futebol.</li>
+            <li>Este jogo permite que você aposte em 25 jogos de futebol.</li>
             <li>
               Para participar, é necessário preencher um cartão de apostas com o
               nome dos times que você acha que irão ganhar cada jogo.
