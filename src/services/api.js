@@ -164,7 +164,7 @@ export default () => {
       let json = await request("get", "ticket", { id }, token);
       return json;
     },
-    getAnalysis: async (id) => {
+    deleteTicket: async (id) => {
       const token = localStorage.getItem("token");
       const json = await request("delete", "ticket", { id }, token);
       return json;
