@@ -14,33 +14,18 @@ import Footer from "../../components/partials/Footer/index.js";
 import useApi from "../../services/api";
 
 const Page = () => {
-  const navigate = useNavigate();
   const api = useApi();
   const { id } = useParams();
   const [ticket, setTicket] = useState([]);
   const [name, setName] = useState("");
-  const [rankingPosition, setRankingPosition] = useState("");
-  let newBet = false;
+  const [count, setCount] = useState("");
   useEffect(() => {
     api.getTicket(id).then((response) => {
       setTicket(response.table);
       setName(response.name);
-      setRankingPosition(response.position);
+      setCount(response.count);
     });
   }, []);
-
-  const handleSendWpp = () => {};
-  const handlePrint = () => {
-    newBet = true;
-    window.print();
-  };
-  const handleNewBet = () => {
-    if (newBet) {
-      navigate("/apostas");
-    } else {
-      alert("Imprima para poder ir para nova aposta!");
-    }
-  };
 
   return (
     <>
@@ -59,7 +44,7 @@ const Page = () => {
                 <strong>Nome: </strong> {name}
               </p>
               <p>
-                <strong>Posição no ranking: </strong> {rankingPosition}
+                <strong>Você acertou: </strong> {count}
               </p>
             </div>
             <div className="table">
@@ -70,7 +55,7 @@ const Page = () => {
                     <th>Resultado</th>
                   </tr>
                   {ticket?.map((item, index) => (
-                    <tr key={index}>
+                    <tr key={index} className={item.color}>
                       <td>
                         {item.time_home} X {item.time_away}
                       </td>

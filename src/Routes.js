@@ -19,6 +19,7 @@ import Ticket from "./pages/Ticket";
 import Rules from "./pages/Rules";
 import MySells from "./pages/MySells";
 import DeleteBet from "./pages/DeleteBet";
+import Financial from "./pages/Financial";
 
 export const Routes = () => {
   return useRoutes([
@@ -80,6 +81,14 @@ export const Routes = () => {
       ),
     },
     {
+      path: "/admin/financeiro",
+      element: (
+        <Protected>
+          <Financial />
+        </Protected>
+      ),
+    },
+    {
       path: "/apostas",
       element: (
         <Protected>
@@ -102,7 +111,8 @@ export const Routes = () => {
           <MySells />
         </Protected>
       ),
-    },    {
+    },
+    {
       path: "/delete/:id",
       element: (
         <Protected>

@@ -25,6 +25,12 @@ export const PageArea = styled.div`
       margin-bottom: 10px;
     }
   }
+  .red {
+    background-color: #ff4040 !important;
+  }
+  .green {
+    background-color: #40ff87 !important;
+  }
   @media (max-width: 500px) {
     .container {
       display: flex;

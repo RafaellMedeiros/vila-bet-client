@@ -33,17 +33,11 @@ const Page = () => {
   useEffect(() => {
     api.getAllUsers().then((response) => setAllUsers(response));
   }, []);
-  
+
   useEffect(() => {
     let queryString = [];
     if (id) {
       queryString.push(`Id=${id}`);
-    }
-    if (revendedor) {
-      queryString.push(`Revendedor=${revendedor}`);
-    }
-    if (data) {
-      queryString.push(`Data=${data}`);
     }
 
     history({
@@ -88,32 +82,6 @@ const Page = () => {
                   </div>
                 </label>
                 <label className="area">
-                  <div className="area--title">Filtrar por revendedor:</div>
-                  <div className="area--input">
-                    <select onChange={(e) => setRevendedor(e.target.value)}>
-                      <option></option>
-                      {allUsers.map((item, index) => (
-                        <option key={index} value={item}>
-                          {item}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                </label>
-
-                <label className="area">
-                  <div className="area--title">Filtrar por data:</div>
-                  <div className="area--input">
-                    <input
-                      type="date"
-                      disabled={disabled}
-                      value={data}
-                      onChange={(e) => setData(e.target.value)}
-                    />
-                  </div>
-                </label>
-
-                <label className="area">
                   <div className="area--title"></div>
                   <div className="area--input--button">
                     <button disabled={disabled}>Filtrar</button>
@@ -145,9 +113,7 @@ const Page = () => {
               <td>{i.address}</td>
               <td>{i.date}</td>
               <td>
-                <a href={`/delete/${i.id}`}>
-                  DELETAR
-                </a>
+                <a href={`/delete/${i.id}`}>DELETAR</a>
               </td>
             </tr>
           ))}

@@ -14,10 +14,6 @@ export const PageArea = styled.div`
     td {
       text-align: center;
       overflow-wrap: break-word;
-      a {
-        text-decoration: none;
-        color: inherit;
-      }
     }
   }
   tr:nth-child(odd) {
@@ -54,10 +50,10 @@ export const SearchArea = styled.div`
   margin-bottom: 30px;
   border: 1px solid #999;
   form {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     font-size: 12px;
+    gap: 10px;
     margin: 10px;
     .area {
       display: flex;

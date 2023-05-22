@@ -169,5 +169,10 @@ export default () => {
       const json = await request("delete", "ticket", { id }, token);
       return json;
     },
+    getFinancial: async () => {
+      let token = localStorage.getItem("token");
+      let json = await request("get", "analysis/financial", {}, token);
+      return json;
+    },
   };
 };
