@@ -7,7 +7,10 @@ export const PageArea = styled.div`
     gap: 20px;
   }
   .games {
-    margin: 10px;
+    padding: 10px;
+    border: 1px solid #47141d;
+    border-radius: 15px;
+
     .game {
       display: flex;
       justify-content: center;
@@ -16,6 +19,12 @@ export const PageArea = styled.div`
         width: 150px;
         margin-left: 5px;
       }
+    }
+    .infos {
+      display: flex;
+      flex-direction: column;
+      align-items: self-start;
+      justify-content: center;
     }
     h3 {
       text-align: center;
@@ -105,6 +114,7 @@ export const DateLimit = styled.div`
   align-items: center;
   max-width: 1000px;
   margin-left: 50px;
+  margin-bottom: 15px;
   .date-limit-title {
     margin-right: 10px;
     font-size: 20px;

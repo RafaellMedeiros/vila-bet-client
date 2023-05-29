@@ -12,11 +12,22 @@ export const PageArea = styled.div`
     max-width: 1000px;
   }
   .games {
-    margin: 10px;
+    padding: 10px;
+    border: 1px solid #47141d;
+    border-radius: 15px;
+
     label {
       display: flex;
       justify-content: center;
     }
+
+    .infos {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
     .time {
       width: 200px;
       text-align: justify;

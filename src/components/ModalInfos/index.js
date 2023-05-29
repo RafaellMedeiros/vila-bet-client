@@ -35,6 +35,8 @@ export default ({ data, setStatus }) => {
 
       if (response.msg === "game created") {
         navigate(`/apostas/confirmacao/${response.id}`);
+      } else if (response.msg === "jogo duplicado") {
+        alert("Jogo Duplicado");
       } else {
         alert("Não foi possivel enviar as apostas, tente novamente.");
       }

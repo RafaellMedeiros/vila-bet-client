@@ -57,7 +57,12 @@ const Page = () => {
                   {ticket?.map((item, index) => (
                     <tr key={index} className={item.color}>
                       <td>
-                        {item.time_home} X {item.time_away}
+                        <div className="header-td">
+                          {item.time_home} X {item.time_away}
+                        </div>
+                        <div className="footer-td">
+                          {item.ligue} / {item.date_game}
+                        </div>
                       </td>
                       <td>{item.result}</td>
                     </tr>

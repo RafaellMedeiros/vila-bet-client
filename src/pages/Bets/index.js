@@ -200,8 +200,16 @@ const Page = () => {
                           {i.time_away}
                         </div>
                       </label>
+                      <hr />
+                      <div className="infos">
+                        <strong>Liga:</strong>
+                        <label className="ligue">{i.ligue}</label>
+                        <strong>Data do Jogo:</strong>
+                        <label className="date_game">{i.date_game}</label>
+                      </div>
                     </div>
                   ))}
+                <hr />
               </>
             )}
           </div>

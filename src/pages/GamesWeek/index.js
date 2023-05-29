@@ -12,31 +12,31 @@ import useApi from "../../services/api";
 const Page = () => {
   const api = useApi();
   const [games, setGames] = useState([
-    { timeHome: "", timeAway: "" },
-    { timeHome: "", timeAway: "" },
-    { timeHome: "", timeAway: "" },
-    { timeHome: "", timeAway: "" },
-    { timeHome: "", timeAway: "" },
-    { timeHome: "", timeAway: "" },
-    { timeHome: "", timeAway: "" },
-    { timeHome: "", timeAway: "" },
-    { timeHome: "", timeAway: "" },
-    { timeHome: "", timeAway: "" },
-    { timeHome: "", timeAway: "" },
-    { timeHome: "", timeAway: "" },
-    { timeHome: "", timeAway: "" },
-    { timeHome: "", timeAway: "" },
-    { timeHome: "", timeAway: "" },
-    { timeHome: "", timeAway: "" },
-    { timeHome: "", timeAway: "" },
-    { timeHome: "", timeAway: "" },
-    { timeHome: "", timeAway: "" },
-    { timeHome: "", timeAway: "" },
-    { timeHome: "", timeAway: "" },
-    { timeHome: "", timeAway: "" },
-    { timeHome: "", timeAway: "" },
-    { timeHome: "", timeAway: "" },
-    { timeHome: "", timeAway: "" }
+    { timeHome: "", timeAway: "", ligue: "", date_game: "" },
+    { timeHome: "", timeAway: "", ligue: "", date_game: "" },
+    { timeHome: "", timeAway: "", ligue: "", date_game: "" },
+    { timeHome: "", timeAway: "", ligue: "", date_game: "" },
+    { timeHome: "", timeAway: "", ligue: "", date_game: "" },
+    { timeHome: "", timeAway: "", ligue: "", date_game: "" },
+    { timeHome: "", timeAway: "", ligue: "", date_game: "" },
+    { timeHome: "", timeAway: "", ligue: "", date_game: "" },
+    { timeHome: "", timeAway: "", ligue: "", date_game: "" },
+    { timeHome: "", timeAway: "", ligue: "", date_game: "" },
+    { timeHome: "", timeAway: "", ligue: "", date_game: "" },
+    { timeHome: "", timeAway: "", ligue: "", date_game: "" },
+    { timeHome: "", timeAway: "", ligue: "", date_game: "" },
+    { timeHome: "", timeAway: "", ligue: "", date_game: "" },
+    { timeHome: "", timeAway: "", ligue: "", date_game: "" },
+    { timeHome: "", timeAway: "", ligue: "", date_game: "" },
+    { timeHome: "", timeAway: "", ligue: "", date_game: "" },
+    { timeHome: "", timeAway: "", ligue: "", date_game: "" },
+    { timeHome: "", timeAway: "", ligue: "", date_game: "" },
+    { timeHome: "", timeAway: "", ligue: "", date_game: "" },
+    { timeHome: "", timeAway: "", ligue: "", date_game: "" },
+    { timeHome: "", timeAway: "", ligue: "", date_game: "" },
+    { timeHome: "", timeAway: "", ligue: "", date_game: "" },
+    { timeHome: "", timeAway: "", ligue: "", date_game: "" },
+    { timeHome: "", timeAway: "", ligue: "", date_game: "" },
   ]);
   const [dateLimit, setDateLimit] = useState("");
   const [disabled, setDisabled] = useState(false);
@@ -54,6 +54,16 @@ const Page = () => {
   const handleChangeAway = (index, value) => {
     const gamesCopy = [...games];
     gamesCopy[index].timeAway = value;
+    setGames(gamesCopy);
+  };
+  const handleChangeInfoLigue = (index, value) => {
+    const gamesCopy = [...games];
+    gamesCopy[index].ligue = value;
+    setGames(gamesCopy);
+  };
+  const handleChangeInfoDateGame = (index, value) => {
+    const gamesCopy = [...games];
+    gamesCopy[index].date_game = value;
     setGames(gamesCopy);
   };
   const handleSendButton = async (e) => {
@@ -119,8 +129,29 @@ const Page = () => {
                     required
                   />
                 </div>
+                <hr />
+                <div className="infos">
+                  Liga:
+                  <input
+                    placeholder="Informe a liga"
+                    required
+                    name="ligue"
+                    onChange={(e) => handleChangeInfoLigue(k, e.target.value)}
+                  />
+                  Data do Jogo:
+                  <input
+                    placeholder="Informe quando será realizado o jogo"
+                    type="datetime-local"
+                    name="date_game"
+                    required
+                    onChange={(e) =>
+                      handleChangeInfoDateGame(k, e.target.value)
+                    }
+                  />
+                </div>
               </div>
             ))}
+            <br />
           </div>
         </form>
       </PageArea>
