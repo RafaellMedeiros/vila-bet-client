@@ -174,5 +174,21 @@ export default () => {
       let json = await request("get", "analysis/financial", {}, token);
       return json;
     },
+    sendBetRemote: async (data) => {
+      let token = localStorage.getItem("token");
+      const params = {
+        info: {
+          name: data.name,
+          phone: data.phone,
+          address: data.address,
+        },
+        game: data.games,
+      };
+      return await request("post", "ticket/remote", params, token);
+    },
+    getGameRemote: async (id) => {
+      let token = localStorage.getItem("token");
+      return await request("get", "ticket/remote", { id }, token);
+    },
   };
 };
