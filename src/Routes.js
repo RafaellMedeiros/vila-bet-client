@@ -20,6 +20,7 @@ import Rules from "./pages/Rules";
 import MySells from "./pages/MySells";
 import DeleteBet from "./pages/DeleteBet";
 import Financial from "./pages/Financial";
+import BetRemote from "./pages/BetRemote";
 
 export const Routes = () => {
   return useRoutes([
@@ -120,6 +121,7 @@ export const Routes = () => {
         </Protected>
       ),
     },
+    { path: "/remote", element: <BetRemote /> },
     { path: "/logout", element: <Logout /> },
     { path: "/ticket/:id", element: <Ticket /> },
     { path: "/rules", element: <Rules /> },

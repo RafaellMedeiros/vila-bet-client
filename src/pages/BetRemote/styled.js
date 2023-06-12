@@ -88,9 +88,39 @@ export const InfosArea = styled.div`
   border: 1px solid #999;
   padding: 15px 0;
 
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  border-radius: 10px;
+
+  .ticket-remote {
+    border: 0;
+    border-bottom: 2px solid #47141d;
+
+    font-size: 26px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .container-copy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 5px;
+
+    span {
+      text-align: center;
+      padding: 5px;
+      flex: 1;
+      background: #47141d;
+      color: #fff;
+      font-weight: bold;
+      border: 0;
+      border-radius: 5px;
+    }
+  }
 
   .area {
     width: 235px;
@@ -157,6 +187,10 @@ export const SendButton = styled.button`
     width: 300px;
     margin-right: 55px;
     font-size: 20px;
+  }
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
   }
 `;
 

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
 import { PageContainer, PageTitle } from "../../components/MainComponents";
 import {
   PageArea,
@@ -7,13 +6,8 @@ import {
   SendButton,
   SendButtonArea,
   DateLimit,
-  InputCod,
-  InputCodConteiner,
-  LabelCod,
-  BtnCod,
 } from "./styled";
-import Modal from "../../components/Modal";
-import ModalInfos from "../../components/ModalInfos";
+
 import useApi from "../../services/api";
 
 const Page = () => {
@@ -22,23 +16,14 @@ const Page = () => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
-  const [seller, setSeller] = useState({ fullName: "", sellerId: "" });
   const [disabled, setDisabled] = useState(false);
 
-  const [modalStatus, setModalStatus] = useState(false);
-  const [modalData, setModalData] = useState([]);
+  const [ticketRemote, setTicketRemote] = useState("");
+
   const [games, setGames] = useState([]);
   const [info, setInfo] = useState({});
   const [dateLimit, setDateLimit] = useState({});
 
-  const [ticketRemote, setTicketRemote] = useState("");
-
-  let sellerId;
-  useEffect(() => {
-    api.getUser().then((data) => {
-      setSeller({ fullName: data.fullName, sellerId: data.cpf });
-    });
-  }, []);
   useEffect(() => {
     api.getGamesWeek().then((data) => {
       setGames(data.gamesWeek);
@@ -48,16 +33,24 @@ const Page = () => {
   }, []);
 
   const handleOnChange = (index, value) => {
+    setDisabled(false);
     const gamesCopy = [...games];
     gamesCopy[index].result = value;
     setGames(gamesCopy);
   };
+
   const handleSendButton = (e) => {
     e.preventDefault();
+    setDisabled(true);
     if (canSubmit()) {
-      const infos = { games, name, phone, address, seller };
-      setModalData(infos);
-      setModalStatus(true);
+      const infos = { games, name, phone, address };
+      api.sendBetRemote(infos).then((data) => {
+        if (data.id) {
+          setTicketRemote(data.id);
+        } else {
+          alert("Falha na criação do ticket");
+        }
+      });
     } else {
       alert("Preencha todos os campos!");
     }
@@ -77,45 +70,27 @@ const Page = () => {
     }
   };
 
-  const submitRemoteTicket = () => {
-    api.getGameRemote(ticketRemote).then((data) => {
-      if (data.RemoteGame) {
-        games.forEach((game) => {
-          const remote = data.RemoteGame.games.game.find(
-            (obj) => obj.id === game.id
-          );
-          if (remote) {
-            game.result = remote.result;
-          }
-        });
-
-        setGames(games);
-        const info = data.RemoteGame.games.info;
-        setName(info.name);
-        setPhone(info.phone);
-        setAddress(info.address);
-      } else {
-        alert("Aposta Remota Não Encontrada");
-      }
-    });
+  const handleCopy = () => {
+    navigator.clipboard
+      .writeText(ticketRemote)
+      .then(() => {
+        alert("Ticket Remoto Copiado");
+      })
+      .catch((error) => {
+        console.error("Erro ao copiar texto:", error);
+      });
   };
 
   const isAllGamesFilled = games?.every((game) => game.result);
   return (
     <PageContainer>
-      <PageTitle>Apostas da semana</PageTitle>
+      <PageTitle>Aposta Remota</PageTitle>
       {dateLimit !== undefined && (
         <DateLimit>
           As apostas se encerram às <strong>{dateLimit?.hours}</strong> de
           <strong> {dateLimit?.date}</strong>
         </DateLimit>
       )}
-
-      <InputCodConteiner>
-        <LabelCod>Aposta Remota</LabelCod>
-        <InputCod onChange={(e) => setTicketRemote(e.target.value)} />
-        <BtnCod onClick={submitRemoteTicket}>Enviar</BtnCod>
-      </InputCodConteiner>
 
       <form onSubmit={handleSendButton}>
         <InfosArea>
@@ -124,7 +99,6 @@ const Page = () => {
             <div className="area--input">
               <input
                 type="text"
-                disabled={disabled}
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
@@ -136,7 +110,6 @@ const Page = () => {
             <div className="area--input">
               <input
                 type="number"
-                disabled={disabled}
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 required
@@ -148,7 +121,6 @@ const Page = () => {
             <div className="area--input">
               <input
                 type="text"
-                disabled={disabled}
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
                 required
@@ -156,9 +128,17 @@ const Page = () => {
             </div>
           </label>
           <label className="area">
-            <div className="area--title">Responsável:</div>
+            <div className="area--title">Ticket Remoto:</div>
             <div className="area--input">
-              <p>{seller.fullName}</p>
+              <input
+                className="ticket-remote"
+                type="text"
+                disabled="true"
+                value={ticketRemote}
+              />
+            </div>
+            <div className="container-copy">
+              <span onClick={handleCopy}>Copiar</span>
             </div>
           </label>
         </InfosArea>
@@ -246,10 +226,7 @@ const Page = () => {
         </PageArea>
         {info.allowed && (
           <SendButtonArea>
-            <SendButton>Enviar apostas</SendButton>
-            <Modal status={modalStatus} setStatus={setModalStatus}>
-              <ModalInfos data={modalData} setStatus={setModalStatus} />
-            </Modal>
+            <SendButton disabled={disabled}>Enviar apostas</SendButton>
           </SendButtonArea>
         )}
       </form>
