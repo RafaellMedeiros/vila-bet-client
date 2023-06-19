@@ -23,10 +23,10 @@ const Page = () => {
               Depois de preencher o cartão de apostas, entregue-o ao organizador
               do jogo juntamente com a sua taxa de inscrição.
             </li>
-            <li>A taxa de inscrição é de R$ 10,00 por aposta.</li>
+            <li>A taxa de inscrição é de R$ 5,00 por aposta.</li>
             <li>
               {" "}
-              O prêmio de R$ 5.000,00 será concedido à pessoa que acertar o
+              O prêmio de R$ 2.500,00 será concedido à pessoa que acertar o
               maior número de jogos.
             </li>
             <li>

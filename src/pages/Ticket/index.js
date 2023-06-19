@@ -18,12 +18,14 @@ const Page = () => {
   const { id } = useParams();
   const [ticket, setTicket] = useState([]);
   const [name, setName] = useState("");
+  const [createAt, setCreateAt] = useState("");
   const [count, setCount] = useState("");
   useEffect(() => {
     api.getTicket(id).then((response) => {
       setTicket(response.table);
       setName(response.name);
       setCount(response.count);
+      setCreateAt(response.createAt);
     });
   }, []);
 
@@ -42,6 +44,9 @@ const Page = () => {
               </p>
               <p>
                 <strong>Nome: </strong> {name}
+              </p>
+              <p>
+                <strong>Criada em: </strong> {createAt}
               </p>
               <p>
                 <strong>Você acertou: </strong> {count}
