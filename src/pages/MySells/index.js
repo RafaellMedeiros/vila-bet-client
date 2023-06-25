@@ -29,9 +29,7 @@ const Page = () => {
       <PageTitle>Minhas vendas.</PageTitle>
       <PageArea>
         <div className="total-bets">Total de apostas: {aposta.length}</div>
-        <div className="total-bets">
-          Total a receber: R$ {2 * aposta.length},00
-        </div>
+        <div className="total-bets">Total a receber: R$ {aposta.length},00</div>
         <table className="responsive" border="1">
           <tr>
             <th>Id</th>
