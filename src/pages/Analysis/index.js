@@ -106,7 +106,7 @@ const Page = () => {
             <tr key={k}>
               <td>
                 {/* <a href={`/ticket/`}>{i.id}</a> */}
-                <a href="/admin">{i.id}</a>
+                <a href={`/ticket/${i.id}`}>{i.id}</a>
               </td>
               <td>{i.seller}</td>
               <td>{i.name}</td>
